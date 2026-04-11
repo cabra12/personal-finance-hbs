@@ -1,1 +1,36 @@
-<h1>Test for home</h1>
+<div class="testimonial">
+    <p class="testimonial-quote">"The Personal Finance Tips website finally helped me gain control of my finances. I paid off my credit card in 6 months!"</p>
+    <p class="testimonial-author">— Sarah M., 29</p>
+</div>
+
+<div class="center-container">
+    <h2 class="card-header">Trending Articles</h2>
+</div>
+
+<div class="card-container">
+   
+    <div class="swiper">
+        <div class="swiper-wrapper">
+            {{#each tips}}
+                <div class="swiper-slide card">
+                    <a href="#">
+                        <img class="card-img" src="{{image}}" alt="{{imageLabel}}" />
+                    </a>
+                    <div class="card-body">
+                        <span class="card-badge">
+                            {{badge}}
+                        </span>
+                        <a href="#">
+                            <h5 class="card-title">{{tipTitle}}</h5>
+                        </a>
+                        <a href="#" class="card-btn">
+                            Read more →
+                        </a>
+                    </div>
+                </div>
+            {{/each}}
+        </div>
+    </div> 
+    <div class="swiper-button-prev-custom"></div>
+    <div class="swiper-button-next-custom"></div>
+</div>

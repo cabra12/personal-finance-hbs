@@ -1,8 +1,21 @@
-const template = require('./templates/home.hbs');
+import Swiper from 'swiper';
+import { Navigation } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/navigation';
 
-const html = template({
-    title: 'Finance Tips',
-    description: 'Welcome to the finance tips site.',
-});
+const initSwiper = () => {
+    const swiper = new Swiper('.swiper', {
+        modules: [Navigation],
+        slidesPerView: 3,
+        loop: false,
+        rewind: true,
+        spaceBetween: 16,
+        navigation: {
+            nextEl: '.swiper-button-next-custom',
+            prevEl: '.swiper-button-prev-custom',
+        },
+    });    
+};
 
-document.body.innerHTML = html;
+document.addEventListener('DOMContentLoaded', initSwiper);
+
