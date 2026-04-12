@@ -27,6 +27,15 @@ p, h1, h2, h3, h4, h5, h6 {
   overflow-wrap: break-word;
 }
 
+nav a {
+  text-decoration: none;
+  color: inherit;
+}
+
+nav a:hover {
+  text-decoration: none;
+}
+
 .nav {
   display: flex;
   justify-content: space-between;

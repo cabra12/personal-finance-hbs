@@ -11,17 +11,17 @@
    
     <div class="swiper">
         <div class="swiper-wrapper">
-            {{#each tips}}
+            {{#each trendingTips}}
                 <div class="swiper-slide card">
                     <img class="card-img" src="{{image}}" alt="{{imageLabel}}" />
                     <div class="card-body">
                         <span class="card-badge">
                             {{badge}}
                         </span>
-                        <a href="#">
+                        <a href="/tips/{{slug}}">
                             <h5 class="card-title">{{tipTitle}}</h5>
                         </a>
-                        <a href="#" class="card-btn">
+                        <a href="/tips/{{slug}}" class="card-btn">
                             Read more →
                         </a>
                     </div>
