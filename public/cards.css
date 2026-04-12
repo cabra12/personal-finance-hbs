@@ -1,11 +1,11 @@
 a {
-  color: #1a73e8;
-  text-decoration: none;
-  transition: color 0.3s ease; /* Optional: smooth transition */
+    color: #1a73e8;
+    text-decoration: none;
+    transition: color 0.3s ease; /* Optional: smooth transition */
 }
 
 a:hover {
-  text-decoration: underline;
+    text-decoration: underline;
 }
 
 .center-container {
@@ -15,7 +15,7 @@ a:hover {
 
 .card-header {
     font-family: 'Lora', sans-serif;
-    font-size: 3rem;
+    font-size: clamp(2rem, 4vw, 3rem);;
     text-align: center;
     border-bottom: 3px solid #6abf4b;
     padding-bottom: 0.4rem;
@@ -78,11 +78,11 @@ a:hover {
 
 .card {
     height: 100%;
-    border: 1px solid #ddd;
     border-radius: 8px;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
     overflow: hidden;
     max-width: 27rem;
+    border: 1px solid #ccc;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 .card-img {
@@ -95,47 +95,47 @@ a:hover {
 }
 
 .card-body {
-  padding: 1.5rem;
-  text-align: center;
-  min-height: 210px;
+    padding: 1.5rem;
+    text-align: center;
+    min-height: 210px;
 }
 
 .card-badge {
-  display: inline-block;
-  background-color: #f0fae8;
-  border: 1px solid #c3e6a8;
-  color: #4e9234;
-  font-size: 0.9rem;
-  font-weight: 500;
-  padding: 0.2rem 0.5rem;
-  border-radius: 4px;
+    display: inline-block;
+    background-color: #f0fae8;
+    border: 1px solid #c3e6a8;
+    color: #4e9234;
+    font-size: 0.9rem;
+    font-weight: 500;
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
 }
 
 .card-title {
-  margin: 0.75rem 0 1.5rem;
-  font-size: 1.5rem;
-  font-weight: 600;
+    margin: 0.75rem 0 1.5rem;
+    font-size: 1.5rem;
+    font-weight: 600;
 }
 
 .card-btn {
-  display: inline-block;
-  background-color: #6abf4b;
-  color: white;
-  padding: 0.5rem 1rem;
-  border-radius: 8px;
-  font-size: 1rem;
-  text-decoration: none;
-  transition: background-color 0.2s ease;
+    display: inline-block;
+    background-color: #6abf4b;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    font-size: 1rem;
+    text-decoration: none;
+    transition: background-color 0.2s ease;
 }
 
 .card-btn:hover {
-  background-color: #4e9234;
+    background-color: #4e9234;
 }
 
 .grid-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 10px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 12px;
     justify-content: center;
     padding: 0 5rem;
     margin-top: 2rem;

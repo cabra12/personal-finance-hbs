@@ -82,7 +82,7 @@ app.get('/', (req, res) => {
     res.render('home', { 
         title: 'Finance Tips Home Page',
         jsFile: 'index.bundle.js',
-        heroTitle: 'Take Control of Your Money',
+        heroTitle: 'Scale Your Financial Future',
         heroSmallText: 'Simple, practical tips to help you save, invest, and build wealth.',
         heroLabel: 'man looking at mountains while standing at a high point',
         heroImage: '/images/hbs hero image.avif',
@@ -108,9 +108,18 @@ app.get('/all-tips', (req, res) => {
 
 app.get('/tips/:slug', (req, res) => {
     const tip = articles.find(t => t.slug === req.params.slug);
+
+    const randomCards = articles
+        .filter(a=> a.slug !== tip.slug)
+        .sort(() => Math.random() - 0.5)
+        .slice(0, 3);
+
     res.render('article', {
         layout: 'article-layout',
         title: tip.tipTitle,
+        articleTitle: tip.tipTitle,
+        articleImage: tip.image,
+        randomCards,
     });
 });
 

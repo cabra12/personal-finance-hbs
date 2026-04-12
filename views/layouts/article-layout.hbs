@@ -4,16 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="/article.css">
+    <link rel="stylesheet" href="/cards.css">
+    <script defer src="/article.bundle.js"></script>
     <title>{{title}}</title>
 </head>
 <body>
-    {{> navbar }}
+    <div class="nav-wrapper-article">
+        {{> navbar }}
+    </div>
+    
 
     <div class="article-hero-container">
-
+        <div class="article-hero-text">
+            <h1>{{articleTitle}}</h1>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Labore corporis minima quas voluptatem totam cum eius, ullam aliquid nostrum. Recusandae?</p>
+        </div>
+        <img src="{{articleImage}}">
+        
     </div>
 
-    {{body}}
+    {{{body}}}
 
     {{> footer }}
 </body>

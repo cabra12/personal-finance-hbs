@@ -6,7 +6,6 @@ import 'swiper/css/navigation';
 const initSwiper = () => {
     const swiper = new Swiper('.swiper', {
         modules: [Navigation],
-        slidesPerView: 3,
         loop: false,
         rewind: true,
         spaceBetween: 16,
@@ -14,6 +13,17 @@ const initSwiper = () => {
             nextEl: '.swiper-button-next-custom',
             prevEl: '.swiper-button-prev-custom',
         },
+        breakpoints: {
+            480: {
+                slidesPerView: 1
+            },
+            640: {
+                slidesPerView: 2
+            },
+            1024: {
+                slidesPerView: 3
+            }
+        }
     });    
 };
 

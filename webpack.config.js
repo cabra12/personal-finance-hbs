@@ -8,6 +8,7 @@ export default {
     entry: {
         index: './src/index.js',
         allTips: './src/all-tips.js', //these names wil go below for the bundle.js output
+        article: './src/article.js',
     },
     output: {
         filename: '[name].bundle.js',
