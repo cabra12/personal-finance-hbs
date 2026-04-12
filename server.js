@@ -13,18 +13,46 @@ app.set('view engine', 'hbs');
 
 app.get('/', (req, res) => {
     res.render('home', { 
-        title: 'Finance Tips Home Page', 
+        title: 'Finance Tips Home Page',
+        jsFile: 'index.bundle.js',
+        heroTitle: 'Take Control of Your Money',
+        heroSmallText: 'Simple, practical tips to help you save, invest, and build wealth.',
+        heroLabel: 'man looking at mountains while standing at a high point',
+        heroImage: '/images/hbs hero image.avif',
+        heroImagePosition: 'center',
         tips: [
             { image: '/images/card-img-investing-early.jpg', imageLabel: 'image showing different stock prices on a dark blue background', tipTitle: 'Start Investing Early for Long-Term Wealth', badge: 'Investing'},
-            { image: '/images/card-credit.avif', imageLabel: 'Scrabble pieces scattered with the word "credit" spelled out in the middle', tipTitle: 'Building your Credit Score', badge: 'Credit'},
-            { image: '/images/card-retirement.jpg', imageLabel: 'two professionally dressed people happy and smiling while giving each other a high-five', tipTitle: '401k, IRA, or Annuity: Which Wins?', badge: 'Retirement'},
-            { image: '/images/card-50-30-20.jpg', imageLabel: 'person in a blue shirt with three stacks of coins, adding more to one pile', tipTitle: 'The 50/30/20 Budgeting Rule', badge: 'Budgeting'},
+            { image: '/images/card-credit.avif', imageLabel: 'Scrabble pieces scattered with the word "credit" spelled out in the middle', tipTitle: 'Building your Credit Score From Zero', badge: 'Credit'},
+            { image: '/images/card-retirement.jpg', imageLabel: 'two professionally dressed people happy and smiling while giving each other a high-five', tipTitle: '401k, IRA, or Annuity: Which is Right for You?', badge: 'Retirement'},
+            { image: '/images/card-50-30-20.jpg', imageLabel: 'person in a blue shirt with three stacks of coins, adding more to one pile', tipTitle: 'How the 50/30/20 Rule Can Help Your Budget', badge: 'Budgeting'},
         ]
-    })
+    });
 });
 //since .set automaically looks in the views folder for hbs files, we are saying when someone visits this link, to render home.hbs and inject it into main.hbs where {body} is
 //res.render is specifically used with the view engine
 
+app.get('/all-tips', (req, res) => {
+    res.render('all-tips', {
+        title: 'All Tips',
+        jsFile: 'allTips.bundle.js',
+        heroTitle: 'Explore All Our Tips',
+        heroSmallText: 'From budgeting basics to investment strategies, find the advice that fits your life.',
+        heroLabel: 'person sitting in front a computer, smiling and looking at figures and charts',
+        heroImage: '/images/all-tips-hero.jpg',
+        heroImagePosition: 'top center',
+        allTipsCards: [
+            { image: '/images/all-tips-rvb.jpg', imageLabel: 'family with children sitting on a bed, just moved in', tipTitle: 'Renting vs. Buying a Home in the Current Economy', badge: 'Housing'},
+            { image: '/images/all-tips-tax.jpg', imageLabel: 'ariel view of a person on a computer with a pad of paper and pen besides them', tipTitle: 'Tax Deductions You Might Be Missing', badge: 'Taxes'},
+            { image: '/images/card-img-investing-early.jpg', imageLabel: 'image showing different stock prices on a dark blue background', tipTitle: 'Start Investing Early for Long-Term Wealth', badge: 'Investing'},
+            { image: '/images/card-credit.avif', imageLabel: 'Scrabble pieces scattered with the word "credit" spelled out in the middle', tipTitle: 'Building your Credit Score From Zero', badge: 'Credit'},
+            { image: '/images/all-tips-salary.jpg', imageLabel: 'Two people shaking hands, reaching an agreement', tipTitle: 'How to Negotiate a Higher Salary', badge: 'Career'},
+            { image: '/images/all-tips-report.jpg', imageLabel: 'Computer screen displaying a credit score of 825', tipTitle: 'Understanding Your Credit Report', badge: 'Credit'},
+            { image: '/images/card-retirement.jpg', imageLabel: 'two professionally dressed people happy and smiling while giving each other a high-five', tipTitle: '401k, IRA, or Annuity: Which is Right for You?', badge: 'Retirement'},
+            { image: '/images/all-tips-index.avif', imageLabel: 'A computer showing a graph of the growth of a stock', tipTitle: 'The Basics of Index Fund Investing', badge: 'Investing'},
+            { image: '/images/card-50-30-20.jpg', imageLabel: 'person in a blue shirt with three stacks of coins, adding more to one pile', tipTitle: 'How the 50/30/20 Rule Can Help Your Budget', badge: 'Budgeting'},
+        ]
+    });
+});
 
 app.use(express.static('public')); //to render static files like CSS, images, client-side JS bundle
 

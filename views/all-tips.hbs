@@ -1,0 +1,28 @@
+<div class="input-wrapper">
+    <label for="articleSearch">&#128269; Search</label>
+    <input type="text" id="articleSearch" placeholder="Enter any article name to search">
+</div>
+
+
+<div class="center-container">
+    <h2 class="card-header">Learn Something New Today</h2>
+</div>
+
+<div class="grid-container">
+    {{#each allTipsCards}}
+        <div class="swiper-slide card">
+            <img class="card-img" src="{{image}}" alt="{{imageLabel}}" />
+            <div class="card-body">
+                <span class="card-badge">
+                    {{badge}}
+                </span>
+                <a href="#">
+                    <h5 class="card-title">{{tipTitle}}</h5>
+                </a>
+                <a href="#" class="card-btn">
+                    Read more →
+                </a>
+            </div>
+        </div>
+    {{/each}}
+</div>

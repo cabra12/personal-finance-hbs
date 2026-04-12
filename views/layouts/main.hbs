@@ -5,15 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/styles.css">
     <link rel="stylesheet" href="/cards.css">
-    <script src="/bundle.js"></script>
+    <script defer src="{{jsFile}}"></script>
     <title>{{title}}</title>
 </head>
 <body>
     <div class="hero-container">
-        <div class="hero-image" role="img" aria-label="man looking at mountains"></div>
+        <div class="hero-image" role="img" aria-label="{{heroLabel}}" style="background-image: url('{{heroImage}}'); background-position: {{heroImagePosition}};"></div>
         <div class="hero-text">
-            <h1>Take Control of Your Money</h1>
-            <p>Simple, practical tips to help you save, invest, and build wealth.</p>
+            <h1>{{heroTitle}}</h1>
+            <p>{{heroSmallText}}</p>
         </div>
         <nav class="nav">
             
@@ -22,7 +22,7 @@
                 <div class="title">Personal Finance Tips</div>       
             </div>
 
-            <button class="nav_btn">All Tips</button>    
+            <a href="/all-tips"><button class="nav_btn">All Tips</button></a>    
         </nav>    
     </div>
 

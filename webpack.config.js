@@ -5,9 +5,12 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 export default {
-    entry: './src/index.js',
+    entry: {
+        index: './src/index.js',
+        allTips: './src/all-tips.js', //these names wil go below for the bundle.js output
+    },
     output: {
-        filename: 'bundle.js',
+        filename: '[name].bundle.js',
         path: path.resolve(__dirname, 'public'),
     },
     mode: 'development',
