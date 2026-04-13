@@ -12,8 +12,12 @@
     <div class="hero-container">
         <div class="hero-image" role="img" aria-label="{{heroLabel}}" style="background-image: url('{{heroImage}}'); background-position: {{heroImagePosition}};"></div>
         <div class="hero-text">
-            <h1>{{heroTitle}}</h1>
-            <p>{{heroSmallText}}</p>
+            {{#if heroTitle}}
+                <h1>{{heroTitle}}</h1>
+            {{/if}}
+            {{#if heroSmallText}}
+                <p>{{heroSmallText}}</p>
+            {{/if}}
         </div>
         {{> navbar }}
     </div>

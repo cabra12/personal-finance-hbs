@@ -66,6 +66,10 @@ nav a:hover {
     font-weight: 600;
 }
 
+.title.white {
+    color: #fff;
+}
+
 .nav_logo {
   width: 50px;
   height: 50px;
@@ -188,4 +192,17 @@ nav a:hover {
 
 .input-wrapper label {
   font-size: 1.2rem;
+}
+
+.h1-404 {
+  font-family: 'Lora', sans-serif;
+  font-size: 3.5rem;
+}
+
+.button-container{
+  margin: 1.4rem 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
 }

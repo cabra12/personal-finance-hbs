@@ -109,6 +109,8 @@ app.get('/all-tips', (req, res) => {
 app.get('/tips/:slug', (req, res) => {
     const tip = articles.find(t => t.slug === req.params.slug);
 
+    if(!tip) return res.status(404).render('404', { title: 'Page Not Found', heroImage: '/images/404img.jpg', heroLabel: 'black background with a pink 404 in the middle', heroImagePosition: 'center', whiteTitle: true,});
+
     const randomCards = articles
         .filter(a=> a.slug !== tip.slug)
         .sort(() => Math.random() - 0.5)
@@ -124,6 +126,16 @@ app.get('/tips/:slug', (req, res) => {
 });
 
 app.use(express.static('public')); //to render static files like CSS, images, client-side JS bundle
+
+app.use((req, res) => {
+    res.status(404).render('404', { 
+        title: 'Page Not Found', 
+        heroImage: '/images/404img.jpg', 
+        heroLabel: 'black background with a pink 404 in the middle', 
+        heroImagePosition: 'center',
+        whiteTitle: true,
+    });
+});
 
 app.listen(PORT, () => {
     console.log(`Server running on http://localhost:${PORT}`);
