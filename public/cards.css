@@ -83,6 +83,7 @@ a:hover {
     max-width: 27rem;
     border: 1px solid #ccc;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    background-color: #fff;
 }
 
 .card-img {
@@ -98,6 +99,7 @@ a:hover {
     padding: 1.5rem;
     text-align: center;
     min-height: 210px;
+    background-color: #fff;
 }
 
 .card-badge {
@@ -113,7 +115,7 @@ a:hover {
 
 .card-title {
     margin: 0.75rem 0 1.5rem;
-    font-size: 1.5rem;
+    font-size: clamp(1.2rem, 2vw, 1.35rem);
     font-weight: 600;
 }
 
