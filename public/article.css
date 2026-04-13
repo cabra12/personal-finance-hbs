@@ -117,7 +117,7 @@
 }
 
 .accordion-panel.active {
-    max-height: 300px;
+    max-height: 450px;
 }
 
 .grid-container.article-cards {
