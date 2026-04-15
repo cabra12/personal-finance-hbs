@@ -13,6 +13,7 @@ html, body {
   font-family: 'Poppins', sans-serif;
   font-size: 100%;
   background: #f0f7ec;
+  overflow-x: hidden;
 }
 
 img, picture, video, canvas, svg {

@@ -16,7 +16,7 @@
   \*************************/
 (__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
-eval("{__webpack_require__.r(__webpack_exports__);\nconst cards = document.querySelectorAll('.card');\nconst search = document.getElementById('articleSearch');\n\nconst updateGrid = () => {\n    const visibleCount =[...cards].filter(card => card.style.display !== 'none').length;\n    const container = document.querySelector('.grid-container');\n    container.style.gridTemplateColumns = (visibleCount <=2) ? `repeat(${visibleCount}, 350px)` : '';\n};\n\nconst searchArticles = (e) => {\n    const searchText = e.target.value.toLowerCase();\n\n    cards.forEach((card) => {\n        const title = card.querySelector('h5.card-title').textContent.toLowerCase();\n\n        card.style.display = (title.indexOf(searchText) != -1) ? '' : 'none';\n    });\n    updateGrid();\n};\n\nsearch.addEventListener('input', searchArticles);\n\n//# sourceURL=webpack://finance-tips-website/./src/all-tips.js?\n}");
+eval("{__webpack_require__.r(__webpack_exports__);\nconst cards = document.querySelectorAll('.card');\nconst search = document.getElementById('articleSearch');\n\nconst searchArticles = (e) => {\n    const searchText = e.target.value.toLowerCase();\n\n    cards.forEach((card) => {\n        const title = card.querySelector('h5.card-title').textContent.toLowerCase();\n\n        card.classList.toggle('hidden', title.indexOf(searchText) === -1);\n    });\n};\n\nsearch.addEventListener('input', searchArticles);\n\n//# sourceURL=webpack://finance-tips-website/./src/all-tips.js?\n}");
 
 /***/ }
 

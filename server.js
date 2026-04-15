@@ -8,7 +8,7 @@ const articles = [
         slug: 'renting-vs-buying',
         image: '/images/all-tips-rvb.jpg',
         imageLabel: 'family with children sitting on a bed, just moved in',
-        tipTitle: 'Renting vs. Buying a Home in the Current Economy', 
+        tipTitle: 'Renting vs. Buying a Home in this Economy', 
         badge: 'Housing'
     },
     {
