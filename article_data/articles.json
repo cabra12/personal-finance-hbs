@@ -1,0 +1,67 @@
+{
+    "articles": [
+        {
+            "slug": "renting-vs-buying",
+            "image": "/images/all-tips-rvb.jpg",
+            "imageLabel": "family with children sitting on a bed, just moved in",
+            "tipTitle": "Renting vs. Buying a Home in this Economy", 
+            "badge": "Housing"
+        },
+        {
+            "slug": "tax-deductions",
+            "image": "/images/all-tips-tax.jpg",
+            "imageLabel": "aerial view of a person on a computer with a pad of paper and pen besides them",
+            "tipTitle": "Tax Deductions You Might Be Missing",
+            "badge": "Taxes"
+        },
+        {
+            "slug": "start-investing-early",
+            "image": "/images/card-img-investing-early.jpg", 
+            "imageLabel": "image showing different stock prices on a dark blue background", 
+            "tipTitle": "Start Investing Early for Long-Term Wealth",
+            "badge": "Investing"
+        },
+        {
+            "slug": "building-credit-from-zero",
+            "image": "/images/card-credit.avif", 
+            "imageLabel": "Scrabble pieces scattered with the word 'credit' spelled out in the middle", 
+            "tipTitle": "Building your Credit Score From Zero",
+            "badge": "Credit"
+        }, 
+        {
+            "slug": "how-to-negotiate-salary",
+            "image": "/images/all-tips-salary.jpg", 
+            "imageLabel": "Two people shaking hands, reaching an agreement", 
+            "tipTitle": "How to Negotiate a Higher Salary",
+            "badge": "Career"
+        }, 
+        {
+            "slug": "understanding-credit-report",
+            "image": "/images/all-tips-report.jpg", 
+            "imageLabel": "Computer screen displaying a credit score of 825", 
+            "tipTitle": "Understanding Your Credit Report",
+            "badge": "Credit"
+        }, 
+        {
+            "slug": "401k-vs-ira-vs-annuity",
+            "image": "/images/card-retirement.jpg", 
+            "imageLabel": "two professionally dressed people happy and smiling while giving each other a high-five", 
+            "tipTitle": "401k, IRA, or Annuity: Which is Right for You?",
+            "badge": "Retirement"
+        },
+        {
+            "slug": "basics-index-fund-investing",
+            "image": "/images/all-tips-index.avif", 
+            "imageLabel": "A computer showing a graph of the growth of a stock", 
+            "tipTitle": "The Basics of Index Fund Investing",
+            "badge": "Investing"
+        },
+        {
+            "slug": "50-30-20-rule",
+            "image": "/images/card-50-30-20.jpg", 
+            "imageLabel": "person in a blue shirt with three stacks of coins, adding more to one pile", 
+            "tipTitle": "How the 50/30/20 Rule Can Help Your Budget",
+            "badge": "Budgeting"
+        }
+    ]
+}

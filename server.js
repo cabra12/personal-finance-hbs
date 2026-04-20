@@ -1,73 +1,8 @@
 import express from 'express';
 import { engine } from 'express-handlebars';
+import * as fs from 'fs';
 const app = express();
 const PORT = process.env.PORT || 3000;
-
-const articles = [
-    {
-        slug: 'renting-vs-buying',
-        image: '/images/all-tips-rvb.jpg',
-        imageLabel: 'family with children sitting on a bed, just moved in',
-        tipTitle: 'Renting vs. Buying a Home in this Economy', 
-        badge: 'Housing'
-    },
-    {
-        slug: 'tax-deductions',
-        image: '/images/all-tips-tax.jpg',
-        imageLabel: 'aerial view of a person on a computer with a pad of paper and pen besides them',
-        tipTitle: 'Tax Deductions You Might Be Missing',
-        badge: 'Taxes'
-    },
-    {
-        slug: 'start-investing-early',
-        image: '/images/card-img-investing-early.jpg', 
-        imageLabel: 'image showing different stock prices on a dark blue background', 
-        tipTitle: 'Start Investing Early for Long-Term Wealth',
-        badge: 'Investing'
-    },
-    {
-        slug: 'building-credit-from-zero',
-        image: '/images/card-credit.avif', 
-        imageLabel: 'Scrabble pieces scattered with the word "credit" spelled out in the middle', 
-        tipTitle: 'Building your Credit Score From Zero',
-        badge: 'Credit'
-    }, 
-    {
-        slug: 'how-to-negotiate-salary',
-        image: '/images/all-tips-salary.jpg', 
-        imageLabel: 'Two people shaking hands, reaching an agreement', 
-        tipTitle: 'How to Negotiate a Higher Salary',
-        badge: 'Career'
-    }, 
-    {
-        slug: 'understanding-credit-report',
-        image: '/images/all-tips-report.jpg', 
-        imageLabel: 'Computer screen displaying a credit score of 825', 
-        tipTitle: 'Understanding Your Credit Report',
-        badge: 'Credit',
-    }, 
-    {
-        slug: '401k-vs-ira-vs-annuity',
-        image: '/images/card-retirement.jpg', 
-        imageLabel: 'two professionally dressed people happy and smiling while giving each other a high-five', 
-        tipTitle: '401k, IRA, or Annuity: Which is Right for You?',
-        badge: 'Retirement'
-    },
-    {
-        slug: 'basics-index-fund-investing',
-        image: '/images/all-tips-index.avif', 
-        imageLabel: 'A computer showing a graph of the growth of a stock', 
-        tipTitle: 'The Basics of Index Fund Investing',
-        badge: 'Investing'
-    },
-    {
-        slug: '50-30-20-rule',
-        image: '/images/card-50-30-20.jpg', 
-        imageLabel: 'person in a blue shirt with three stacks of coins, adding more to one pile', 
-        tipTitle: 'How the 50/30/20 Rule Can Help Your Budget',
-        badge: 'Budgeting'
-    },
-];
 
 app.engine('hbs', engine({
     defaultLayout: 'main',
@@ -79,49 +14,67 @@ app.set('view engine', 'hbs');
 //when the file is found, use the engine to process them to HTML
 
 app.get('/', (req, res) => {
-    res.render('home', { 
-        title: 'Finance Tips Home Page',
-        jsFile: 'index.bundle.js',
-        heroTitle: 'Scale Your Financial Future',
-        heroSmallText: 'Simple, practical tips to help you save, invest, and build wealth.',
-        heroLabel: 'man looking at mountains while standing at a high point',
-        heroImage: '/images/hbs hero image.avif',
-        heroImagePosition: 'center',
-        trendingTips: articles.slice(5),
+    fs.readFile('article_data/articles.json', 'utf-8', (err, data) => {
+        if(err) return res.status(500).send('Server error');
+
+        const { articles } = JSON.parse(data);
+
+        res.render('home', { 
+            title: 'Finance Tips Home Page',
+            jsFile: 'index.bundle.js',
+            heroTitle: 'Scale Your Financial Future',
+            heroSmallText: 'Simple, practical tips to help you save, invest, and build wealth.',
+            heroLabel: 'man looking at mountains while standing at a high point',
+            heroImage: '/images/hbs hero image.avif',
+            heroImagePosition: 'center',
+            trendingTips: articles.slice(5),
+        });
     });
+
 });
 //since .set automaically looks in the views folder for hbs files, we are saying when someone visits this link, to render home.hbs and inject it into main.hbs where {body} is
 //res.render is specifically used with the view engine
 
 app.get('/all-tips', (req, res) => {
-    res.render('all-tips', {
-        title: 'All Tips',
-        jsFile: 'allTips.bundle.js',
-        heroTitle: 'Explore All Our Tips',
-        heroSmallText: 'From budgeting basics to investment strategies, find the advice that fits your life.',
-        heroLabel: 'person sitting in front a computer, smiling and looking at figures and charts',
-        heroImage: '/images/all-tips-hero.jpg',
-        heroImagePosition: 'top center',
-        allTipsCards: articles,
+    fs.readFile('article_data/articles.json', 'utf-8', (err, data) => {
+        if(err) return res.status(500).send('Server error');
+
+        const { articles } = JSON.parse(data);
+
+        res.render('all-tips', {
+            title: 'All Tips',
+            jsFile: 'allTips.bundle.js',
+            heroTitle: 'Explore All Our Tips',
+            heroSmallText: 'From budgeting basics to investment strategies, find the advice that fits your life.',
+            heroLabel: 'person sitting in front a computer, smiling and looking at figures and charts',
+            heroImage: '/images/all-tips-hero.jpg',
+            heroImagePosition: 'top center',
+            allTipsCards: articles
+        });
     });
 });
 
 app.get('/tips/:slug', (req, res) => {
-    const tip = articles.find(t => t.slug === req.params.slug);
+    fs.readFile('article_data/articles.json', 'utf-8', (err, data) => {
+        if(err) return res.status(500).send('Server error');
 
-    if(!tip) return res.status(404).render('404', { title: 'Page Not Found', heroImage: '/images/404img.jpg', heroLabel: 'black background with a pink 404 in the middle', heroImagePosition: 'center', whiteTitle: true,});
+        const { articles } = JSON.parse(data);
+        const tip = articles.find(t => t.slug === req.params.slug);
 
-    const randomCards = articles
-        .filter(a=> a.slug !== tip.slug)
-        .sort(() => Math.random() - 0.5)
-        .slice(0, 3);
+        if(!tip) return res.status(404).render('404', { title: 'Page Not Found', heroImage: '/images/404img.jpg', heroLabel: 'black background with a pink 404 in the middle', heroImagePosition: 'center', whiteTitle: true,});
 
-    res.render('article', {
-        layout: 'article-layout',
-        title: tip.tipTitle,
-        articleTitle: tip.tipTitle,
-        articleImage: tip.image,
-        randomCards,
+        const randomCards = articles
+            .filter(a=> a.slug !== tip.slug)
+            .sort(() => Math.random() - 0.5)
+            .slice(0, 3);
+
+        res.render('article', {
+            layout: 'article-layout',
+            title: tip.tipTitle,
+            articleTitle: tip.tipTitle,
+            articleImage: tip.image,
+            randomCards,
+        });
     });
 });
 
