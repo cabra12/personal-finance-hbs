@@ -26,6 +26,7 @@ app.get('/', (req, res) => {
             heroSmallText: 'Simple, practical tips to help you save, invest, and build wealth.',
             heroLabel: 'man looking at mountains while standing at a high point',
             heroImage: '/images/hbs hero image.avif',
+            heroImageMobile: '/images/hbs hero image-small.avif',
             heroImagePosition: 'center',
             trendingTips: articles.slice(5),
         });
@@ -47,7 +48,8 @@ app.get('/all-tips', (req, res) => {
             heroTitle: 'Explore All Our Tips',
             heroSmallText: 'From budgeting basics to investment strategies, find the advice that fits your life.',
             heroLabel: 'person sitting in front a computer, smiling and looking at figures and charts',
-            heroImage: '/images/all-tips-hero.jpg',
+            heroImage: '/images/all-tips-hero.avif',
+            heroImageMobile: '/images/all-tips-hero-small.avif',
             heroImagePosition: 'top center',
             allTipsCards: articles
         });
@@ -83,7 +85,8 @@ app.use(express.static('public')); //to render static files like CSS, images, cl
 app.use((req, res) => {
     res.status(404).render('404', { 
         title: 'Page Not Found', 
-        heroImage: '/images/404img.jpg', 
+        heroImage: '/images/404img.avif', 
+        heroImageMobile: '/images/404img-small.avif',
         heroLabel: 'black background with a pink 404 in the middle', 
         heroImagePosition: 'center',
         whiteTitle: true,

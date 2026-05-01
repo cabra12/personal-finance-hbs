@@ -7,10 +7,22 @@
     <link rel="stylesheet" href="/cards.css">
     <script defer src="{{jsFile}}"></script>
     <title>{{title}}</title>
+    <style>
+        .hero-image {
+            background-image: url('{{ heroImage }}');
+            background-position: {{heroImagePosition}};
+        }
+
+        @media (max-width: 768px) {
+            .hero-image {
+                background-image: url('{{ heroImageMobile }}');
+            }
+        }
+    </style>
 </head>
 <body>
     <div class="hero-container">
-        <div class="hero-image" role="img" aria-label="{{heroLabel}}" style="background-image: url('{{heroImage}}'); background-position: {{heroImagePosition}};"></div>
+        <div class="hero-image" role="img" aria-label="{{heroLabel}}"></div>
         <div class="hero-text">
             {{#if heroTitle}}
                 <h1>{{heroTitle}}</h1>

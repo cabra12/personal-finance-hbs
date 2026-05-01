@@ -98,7 +98,6 @@ nav a:hover {
 }
 
 .hero-image {
-    background-image: url('/images/hbs hero image.avif');
     height:80vh;
     background-size: cover;
     width: 100%;
